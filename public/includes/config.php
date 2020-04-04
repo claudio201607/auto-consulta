@@ -1,16 +1,27 @@
 <?php
-  include_once('Database.php');
-  define('SS_DB_NAME', 'auto_consulta');
-  define('SS_DB_USER', 'root');
-  define('SS_DB_PASSWORD', '');
-  define('SS_DB_HOST', 'localhost');
- 
-  $dsn  =   "mysql:dbname=".SS_DB_NAME.";host=".SS_DB_HOST."";
-  $pdo  =   "";
-  try {
-    $pdo = new PDO($dsn, SS_DB_USER, SS_DB_PASSWORD);
-  }catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-  }
-  $db   =   new Database($pdo);
+/* DATABASE CONFIGURATION */
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_DATABASE', 'dbhost');
+//define("BASE_URL", "http://localhost/PHPLoginHash/"); // Eg. http://yourwebsite.com
+
+
+function getDB()
+{
+$dbhost=DB_SERVER;
+$dbuser=DB_USERNAME;
+$dbpass=DB_PASSWORD;
+$dbname=DB_DATABASE;
+try {
+$dbConnection = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
+$dbConnection->exec("set names utf8");
+$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+return $dbConnection;
+}
+catch (PDOException $e) {
+echo 'Connection failed: ' . $e->getMessage();
+}
+
+}
 ?>
