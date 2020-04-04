@@ -1,9 +1,9 @@
 <?php
 /* DATABASE CONFIGURATION */
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_DATABASE', 'dbhost');
+define('DB_SERVER', '190.107.176.12');
+define('DB_USERNAME', 'rootx');
+define('DB_PASSWORD', '4O1hf%f1');
+define('DB_DATABASE', 'artistic1_');
 //define("BASE_URL", "http://localhost/PHPLoginHash/"); // Eg. http://yourwebsite.com
 
 
